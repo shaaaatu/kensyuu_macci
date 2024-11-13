@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+	<div class="bg-gray-50 w-screen h-screen flex flex-col justify-center items-center">
+		<div class="bg-white flex w-[60%] h-[80%] rounded-lg">
+			<div class="flex flex-col w-[50%]">
+				<div class="w-[200px] h-[50px] mt-[10px] ml-[10px] block">
+					<img src="./img/macci-logo.png" alt="" class="max-w-full h-full object-cover">
+				</div>
+				<div class="w-[400px] h-[350px] mt-[100px] ml-auto">
+					<img src="./img/macci-login.png" alt="" class="max-w-full h-full object-cover">
+				</div>
+			</div>
+			<div class="flex flex-col w-[50%] py-[130px] items-center">
+				<div class="text-center text-4xl font-bold w-[100px]">
+					<h1>Login</h1>
+				</div>
+				<div class="mt-[80px] w-[200px]">
+					<div class="">
+						<input type="text" placeholder="Email" class="pl-[10px] h-[40px] leading-[40px] border-solid border-b border-indigo-500">
+					</div>
+					<div class="">
+						<input type="text" placeholder="Password" class="pl-[10px] h-[40px] mt-[20px] leading-[40px] border-solid border-b border-indigo-500">
+					</div>
+				</div>
+				<div class="mt-[80px] w-[130px]">
+					<button class="h-[50px] w-full bg-indigo-500 text-white rounded-full">ログイン</button>
+				</div>
+				<div class="mt-[50px] text-center text-gray-400 font-medium">
+					<p class="mb-[5px]">About <a class="text-indigo-500">macci</a></p>
+					<a class="underline decoration-2">Forgot password?</a>
+				</div>
+			</div>
+		</div>
+		<footer class="text-center w-full h-[50px] leading-[50px] text-gray-400 font-medium absolute bottom-0">
+			<p>© 株式会社Review - All Right Reserved</p>
+		</footer>
+	</div>
+</body>
+</html>
