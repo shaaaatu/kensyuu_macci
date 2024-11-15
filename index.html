@@ -7,21 +7,21 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-0 m-0 overflow-hidden">
-    <div class="w-screen h-screen bg-red-50">
-		<header class="flex items-center justify-between h-[5%]">
-			<div class="flex items-center justify-center collapse-menu bg-red-100">
+    <div class="w-screen h-screen flex flex-col">
+		<header class="flex items-center justify-between h-14 border-solid border-b-2 border-gray-400">
+			<div class="flex items-center justify-center collapse-menu">
 				<!-- <input type="draw_input" type="checkbox"> -->
 				<label for="drawer_input" class="flex flex-col h-[20px] w-[20px] justify-center items-center cursor-pointer mx-[10px] pt-[2px]">
-					<div class="w-[100%] h-[2px] bg-[#333] mb-[4px]"></div>
-					<div class="w-[100%] h-[2px] bg-[#333] mb-[4px]"></div>
-					<div class="w-[100%] h-[2px] bg-[#333] mb-[4px]"></div>
+					<div class="w-full h-[2px] bg-[#333] mb-[4px]"></div>
+					<div class="w-full h-[2px] bg-[#333] mb-[4px]"></div>
+					<div class="w-full h-[2px] bg-[#333] mb-[4px]"></div>
 				</label>
 				<a href="">
 					<img src="" alt="">
 				</a>
 				<span>Review_プラン</span>
 			</div>
-			<div class="flex items-center m-[10px] bg-red-200 gap-1">
+			<div class="flex items-center m-[10px] gap-1">
 				<div>
 					<span>プラン・アップグレードについては</span>
 					<button class="mr-[15px]">
@@ -37,31 +37,57 @@
 				</button>
 			</div>
 		</header>
-		<div class="flex grow-1 h-[95%] w-[100%]">
-			<aside class="bg-black w-[5%] text-white flex flex-col items-center">
-				<ul class="w-[100%] [&>*]:h-[56px] [&_div]:leading-[56px] text-center">
+		<div class="grow flex overflow-hidden">
+			<aside class="bg-black min-w-20 h-full text-white flex flex-col items-center">
+				<ul class="w-full [&>*]:h-[56px] [&_div]:leading-[56px] text-center">
 					<li>
 						<div class="">
 							<span>a</span>
-							<i></i>
 						</div>
 					</li>
 					<li>
-						<div>
-							<span>a</span>
-							<i></i>
+						<div class="relative">
+							<div class="peer cursor-pointer">M</div>
+							<div class="peer-hover:block hover:block hidden absolute top-0 left-20 w-52 h-44 bg-black text-white text-left">
+								<div>街データ</div>
+								<ul class="pl-[20px]">
+									<li>
+										<label for="machi_data_list" class="block cursor-pointer">一覧</label>
+									</li>
+									<li class="cursor-pointer">
+										<label for="" class="block cursor-pointer">マップ</label>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
 					<li>
-						<div>
-							<span>a</span>
-							<i></i>
+						<div class="relative">
+							<div class="peer cursor-pointer">O</div>
+							<div class="peer-hover:block hover:block hidden absolute top-0 left-20 w-52 h-44 bg-black text-white text-left">
+								<div>開業データ</div>
+								<ul class="pl-[20px]">
+									<li>
+										<label for="open_data_list" class="cursor-pointer block">一覧</label>
+									</li>
+									<li>
+										<label for="" class="block cursor-pointer">マップ</label>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
 					<li>
-						<div>
-							<span>a</span>
-							<i></i>
+						<div class="relative">
+							<div class="peer cursor-pointer">C</div>
+							<div class="peer-hover:block hover:block hidden absolute top-0 left-20 w-52 h-32 bg-black text-white text-left">
+								<div>法人データ</div>
+								<ul class="pl-[20px]">
+									<li>
+										<label for="corporate_data_list" class="cursor-pointer block">一覧</label>
+									</li>
+								</ul>
+							</div>
 						</div>
 					</li>
 					<li>
@@ -78,884 +104,2218 @@
 					</li>
 				</ul>
 			</aside>
-			<div class="flex flex-col bg-blue-200 w-[17%] text-sm">
-				<div class="overflow-auto w-[100%] h-[90%] p-[15px]">
-					<div class="bg-blue-100 p-[10px]">
-						<div class="font-bold mb-[10px]">現在の検索条件</div>
-						<div class="mb-[10px]">なし</div>
-						<div class="font-bold mb-[10px]">前回の検索条件条件</div>
-						<div class="mb-[10px]">なし</div>
-						<div class="font-bold mb-[10px]">保存した検索条件</div>
-						<div class="mb-[10px]">検索条件は保存先されていません</div>
+			<input type="radio" id="machi_data_list" name="page" class="hidden peer/machi_data_list" checked>
+			<div class="hidden peer-checked/machi_data_list:flex overflow-hidden">
+				<div class="flex flex-col bg-white w-90 h-full text-sm">
+					<div class="overflow-scroll w-full h-[calc(100%-3.5rem)] p-[15px]">
+						<div class="bg-blue-100 p-[10px]">
+							<div class="font-bold mb-[10px]">現在の検索条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">前回の検索条件条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">保存した検索条件</div>
+							<div class="mb-[10px]">検索条件は保存先されていません</div>
+						</div>
+						<div class="p-[10px]">
+							<div class="pb-[3px]">
+								<div class="font-bold">フリーワード</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="キーワードを入力">
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="除外ワードを入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">法人番号</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="法人番号を入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">都道府県</div>
+								<div class="my-[10px]">
+									<div class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white leading-[40px] text-center">
+										<label for="ml-prefecture" class="block w-full h-full">設定する</label>
+										<input type="checkbox" id="ml-prefecture" class="hidden peer/ml-prefecture">
+										<div class="hidden peer-checked/ml-prefecture:flex fixed z-50 top-0 left-0 w-full h-full bg-black/[.60] justify-center items-center"> 
+											<div class="relative w-[80%] h-[70%] bg-white text-left p-[30px]">
+												<label for="ml-prefecture" class="absolute top-[20px] right-[20px] text-3xl">&times;</label>
+												<h1 class="text-2xl">都道府県選択</h1>
+												<div class="h-[90%]"></div>
+												<div class="px-[10px] flex justify-between items-center leading-[40px] rounded-md h-[40px]">
+													<p class="block bg-gray-300 h-full grow">選択から反映まで時間がかかるケースがございます。</p>
+													<label for="ml-prefecture" class="w-20 h-full text-lg bg-white block rounded-md border-solid border border-gray-300 text-center leading-[40px]">閉じる</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white">設定する</button> -->
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full rounded p-[3px] h-[40px] border-solid border-gray-300 border" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">ジャンル</div>
+								<div class="my-[10px]">
+									<div class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white leading-[40px] text-center">
+										<label for="ml-genre" class="block w-full h-full">設定する</label>
+										<input type="checkbox" id="ml-genre" class="hidden peer/ml-genre">
+										<div class="hidden peer-checked/ml-genre:flex fixed z-50 top-0 left-0 w-full h-full bg-black/[.60] justify-center items-center"> 
+											<div class="relative w-[80%] h-[70%] bg-white text-left p-[30px]">
+												<label for="ml-genre" class="absolute top-[20px] right-[20px] text-3xl">&times;</label>
+												<h1 class="text-2xl">ジャンル選択</h1>
+												<div class="h-[90%]"></div>
+												<div class="px-[10px] flex justify-between items-center leading-[40px] rounded-md h-[40px]">
+													<p class="blockh-full grow"></p>
+													<label for="ml-genre" class="w-20 h-full text-lg bg-white block rounded-md border-solid border border-gray-300 text-center leading-[40px]">閉じる</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white">設定する</button> -->
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full rounded p-[3px] h-[40px] border-solid border-gray-300 border" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">キーワード</div>
+								<div class="my-[10px]">ジャンルを選択してくださいください</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">電話番号</div>
+								<div class="my-[10px]">
+									<input type="radio" id="phone-t" name="ml-phone"><label for="phone-t">あり</label>
+									<input type="radio" id="phone-f"name="ml-phone"><label for="phone-f">なし</label>
+									<input type="radio" id="phone-a"name="ml-phone" checked><label for="phone-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">法人名</div>
+								<div>
+									<input type="radio" id="corporate-t"name="ml-corporate"><label for="corporate-t">あり</label>
+									<input type="radio" id="corporate-f"name="ml-corporate"><label for="corporate-f">なし</label>
+									<input type="radio" id="corporate-a"name="ml-corporate" checked><label for="corporate-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">ハッシュタグ</div>
+								<div>
+									<input type="radio" id="hashtag-t" name="ml-hashtag"><label for="hashtag-t">あり</label>
+									<input type="radio" id="hashtag-f" name="ml-hashtag"><label for="hashtag-f">なし</label>
+									<input type="radio" id="hashtag-a" name="ml-hashtag" checked><label for="hashtag-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">保存先</div>
+								<div>
+									<input type="radio" id="save-t" name="ml-save"><label for="save-t">あり</label>
+									<input type="radio" id="save-f" name="ml-save"><label for="save-f">なし</label>
+									<input type="radio" id="save-a" name="ml-save" checked><label for="save-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">タスク</div>
+								<div>
+									<input type="radio" id="task-t" name="ml-task"><label for="task-t">あり</label>
+									<input type="radio" id="task-f" name="ml-task"><label for="task-f">なし</label>
+									<input type="radio" id="task-a" name="ml-task" checked><label for="task-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">エクスポート</div>
+								<div>
+									<input type="radio" id="export-t" name="ml-export"><label for="export-t">出力済</label>
+									<input type="radio" id="export-f" name="ml-export"><label for="export-f">未出力</label>
+									<input type="radio" id="export-a" name="ml-export" checked><label for="export-a">全部</label>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="p-[10px]">
-						<div class="pb-[3px]">
-							<div class="font-bold">フリーワード</div>
-							<div class="my-[10px]">
-								<input class="w-[100%] p-[3px] rounded h-[30px]" type="text" placeholder="キーワードを入力">
-							</div>
-							<div class="my-[10px]">
-								<input class="w-[100%] p-[3px] rounded h-[30px]" type="text" placeholder="除外ワードを入力">
-							</div>
-						</div>
-						<div class="py-[3px]">
-							<div class="font-bold">法人番号</div>
-							<div class="my-[10px]">
-								<input class="w-[100%] p-[3px] rounded h-[30px]" type="text" placeholder="法人番号を入力">
-							</div>
-						</div>
-						<div class="py-[3px]">
-							<div class="font-bold">都道府県</div>
-							<div class="my-[10px]">
-								<button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[30px] leading-[30px] bg-white">設定する</button>
-							</div>
-							<div class="my-[10px]">
-								<input class="w-[100%] rounded p-[3px] h-[30px]" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
-							</div>
-						</div>
-						<div class="py-[3px]">
-							<div class="font-bold">ジャンル</div>
-							<div class="my-[10px]">
-								<button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[30px] leading-[30px] bg-white">設定する</button>
-							</div>
-							<div class="my-[10px]">
-								<input class="w-[100%] rounded p-[3px] h-[30px]" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
-							</div>
-						</div>
-						<div class="py-[3px]">
-							<div class="font-bold">キーワード</div>
-							<div class="my-[10px]">ジャンルを選択してくださいください</div>
-						</div>
-						<div class="py-[3px]">
-							<div class="font-bold">電話番号</div>
-							<div class="my-[10px]">
-								<input type="radio" id="phone-t" name="phone"><label for="phone-t">あり</label>
-								<input type="radio" id="phone-f"name="phone"><label for="phone-f">なし</label>
-								<input type="radio" id="phone-a"name="phone" checked><label for="phone-a">全部</label>
-							</div>
-						</div>
-						<div class="py-[5px]">
-							<div class="font-bold">法人名</div>
-							<div>
-								<input type="radio" id="corporate-t"name="corporate"><label for="corporate-t">あり</label>
-								<input type="radio" id="corporate-f"name="corporate"><label for="corporate-f">なし</label>
-								<input type="radio" id="corporate-a"name="corporate" checked><label for="corporate-a">全部</label>
-							</div>
-						</div>
-						<div class="py-[5px]">
-							<div class="font-bold">ハッシュタグ</div>
-							<div>
-								<input type="radio" id="hashtag-t" name="hashtag"><label for="hashtag-t">あり</label>
-								<input type="radio" id="hashtag-f" name="hashtag"><label for="hashtag-f">なし</label>
-								<input type="radio" id="hashtag-a" name="hashtag" checked><label for="hashtag-a">全部</label>
-							</div>
-						</div>
-						<div class="py-[5px]">
-							<div class="font-bold">保存先</div>
-							<div>
-								<input type="radio" id="save-t" name="save"><label for="save-t">あり</label>
-								<input type="radio" id="save-f" name="save"><label for="save-f">なし</label>
-								<input type="radio" id="save-a" name="save" checked><label for="save-a">全部</label>
-							</div>
-						</div>
-						<div class="py-[5px]">
-							<div class="font-bold">タスク</div>
-							<div>
-								<input type="radio" id="task-t" name="task"><label for="task-t">あり</label>
-								<input type="radio" id="task-f" name="task"><label for="task-f">なし</label>
-								<input type="radio" id="task-a" name="task" checked><label for="task-a">全部</label>
-							</div>
-						</div>
-						<div class="py-[5px]">
-							<div class="font-bold">エクスポート</div>
-							<div>
-								<input type="radio" id="export-t" name="export"><label for="export-t">出力済</label>
-								<input type="radio" id="export-f" name="export"><label for="export-f">未出力</label>
-								<input type="radio" id="export-a" name="export" checked><label for="export-a">全部</label>
-							</div>
+					<div class="bg-gray-300 h-20 flex flex-col items-center px-[30px]">
+						<button class="text-white bg-green-500 rounded-full w-[250px] h-[40px] my-[10px]">この条件で検索条件する</button>
+						<div class="w-full flex justify-between">
+							<button class="pl-[40px]">クリア</button>
+							<button class="pr-[40px]">条件を保存する</button>
 						</div>
 					</div>
 				</div>
-				<div class="bg-blue-300 h-[10%] flex flex-col items-center px-[30px]">
-					<button class="text-white bg-green-500 rounded-full w-[250px] h-[40px] my-[10px]">この条件で検索条件する</button>
-					<div class="w-[100%] flex justify-between">
-						<button class="pl-[40px]">クリア</button>
-						<button class="pr-[40px]">条件を保存する</button>
-					</div>
-				</div>
-			</div>
-			<main class="bg-blue-400 w-[78%]">
-				<div class="bg-green-50 h-[6%] flex justify-between items-center">
-					<div class="ml-[10px] relative w-[130px] h-[35px] bg-white border-solid border border-black rounded-md">
-						<label for="toggle" onclick="" class="w-[100%] h-[100%] pl-[5px] block leading-[35px]">menu</label>
-						<input type="checkbox" id="toggle" autocomplete="off" class="hidden peer">
-						<ul id="menu" class="hidden w-[100%] mt-[10px] bg-white peer-checked:block absolute border-solid border border-black rounded-md z-30">
-							<li class="pl-[5px] leading-[35px]">macci</li>
-							<li class="pl-[5px] leading-[35px]">マイマップ</li>
-						</ul>
-					</div>
-					<button class="w-[130px] h-[35px] mr-[10px] border-solid border border-black rounded-md bg-white">エクスポート</button>
-				</div>
-				<div class="overflow-auto h-[86%] mx-[10px]">
-					<table class="w-[100%] table-fixed border-collapse bg-white">
-						<thead class="sticky top-0 z-20 h-[60px] py-[12px] border-solid border-b">
-							<tr class="[&>*]:bg-white">
-								<th class="sticky left-0 w-[60px]">
-									<div>
-										<input type="checkbox">
-									</div>
-								</th>
-								<th class="sticky left-[60px] w-[200px]">
-									<div></div>
-								</th>
-								<th class="text-left px-[20px] w-[140px]"><div>タグ</div></th>
-								<th class="text-left px-[20px] w-[150px]"><div>エクスポート</div></th>
-								<th class="text-left px-[20px] w-[115px]"><div>分類</div></th>
-								<th class="text-left px-[20px] w-[280px]"><div>施設名</div></th>
-								<th class="text-left px-[20px] w-[140px]"><div>施設電話番号</div></th>
-								<th class="text-left px-[20px] w-[140px]"><div>施設郵便番号</div></th>
-								<th class="text-left px-[20px] w-[400px]"><div>施設住所</div></th>
-								<th class="text-left px-[20px] w-[200px]"><div>施設ビル</div></th>
-								<th class="text-left px-[20px] w-[80px]"><div></div></th>
-							</tr>
-						</thead>
-						<tbody class="">
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px]">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td>千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-							<tr class="border-solid border-b h-[60px] w-[100%] [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
-								<th class="sticky left-0 z-10">
-									<input type="checkbox">
-								</th>
-								<th class="sticky left-[60px] z-10">
-									<div class="w-[200px]">
-										<button>ハッシュタグ</button>
-										<button>保存</button>
-										<button>タスク</button>
-									</div>
-								</th>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>
-									<div class=""></div>
-								</td>
-								<td>医療・介護</td>
-								<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
-								<td>04-7092-1128</td>
-								<td></td>
-								<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
-								<td></td>
-								<td>
-									<button>s</button>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="h-[8%] w-[100%] bg-white flex justify-between items-center px-[10px]">
-					<div class="w-[350px] h-[100%] flex items-center">
-						<span>表示件数</span>
-						<div class="relative w-[100px] h-[40px] ml-[10px] text-center border-solid border border-black rounded-md leading-[40px]">
-							<input type="checkbox" id="num" class="hidden peer">
-							<ul class="hidden peer-checked:block absolute bottom-[60px] z-10 w-[100%] bg-white h-[120px] border-solid border border-black rounded-md mb-[5px]">
-								<li class="leading-[30px]">25</li>
-								<li class="leading-[30px]">50</li>
-								<li class="leading-[30px]">100</li>
-								<li class="leading-[30px]">200</li>
+				<main class="grow overflow-hidden">
+					<div class="bg-white h-[6%] flex justify-between items-center">
+						<div class="ml-[10px] relative w-[130px] h-[35px] bg-white border-solid border border-black rounded-md">
+							<label for="ml_toggle" onclick="" class="w-full h-full pl-[5px] block leading-[35px]">menu</label>
+							<input type="checkbox" id="ml_toggle" autocomplete="off" class="hidden peer">
+							<ul id="menu" class="hidden w-full mt-[10px] bg-white peer-checked:block absolute border-solid border border-black rounded-md z-30">
+								<li class="pl-[5px] leading-[35px]">macci</li>
+								<li class="pl-[5px] leading-[35px]">マイマップ</li>
 							</ul>
-							<label for="num" class="block">50</label>
+						</div>
+						<div class="w-[130px] h-[35px] mr-[10px] border-solid border border-black rounded-md text-center leading-[35px]">
+							<label for="ml_export_modal" class="w-full block cursor-pointer">エクスポート</label>
+							<input type="checkbox" id="ml_export_modal" class="hidden peer">
+							<div class="peer-checked:flex fixed top-0 left-0 z-50 hidden w-full h-full justify-center items-center bg-black/[.60]">
+								<div class="relative w-[30%] h-[20%] bg-white rounded-md p-[30px]">
+									<label for="ml_export_modal" class="absolute top-[20px] right-[20px] text-gray-500 text-2xl cursor-pointer">&times;</label>
+									<div class="text-left">
+										<h1 class="text-2xl">確認</h1>
+										<p class="mt-[20px] text-xl text-gray-500">今月のエクスポート状況は1251/100000です。出力しますか。</p>
+									</div>
+									<label for="ml_export_modal" class="block ml-auto text-white bg-blue-400 w-[50px] h-[35px] rounded-md text-center leading-[35px] cursor-pointer">OK</label>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="flex">
-						<div class="[&>*]:bg-gray-200 [&>#active]:bg-blue-300 [&>*]:min-w-[25px] [&>*]:h-[25px] [&>*]:mr-[8px] text-sm">
-							<button><</button>
-							<button id="active">1</button>
-							<button>2</button>
-							<button>3</button>
-							<button>4</button>
-							<button>5</button>
-							<button>6</button>
-							<button>...</button>
-							<button>65638</button>
-							<button>></button>
+					<div class="overflow-auto h-[86%] mx-[10px]">
+						<table class="w-full table-fixed border-collapse bg-white">
+							<thead class="sticky top-0 z-20 h-[60px] py-[12px] border-solid border-b">
+								<tr class="[&>*]:bg-white">
+									<th class="sticky left-0 w-[60px]">
+										<div>
+											<input type="checkbox">
+										</div>
+									</th>
+									<th class="sticky left-[60px] w-[200px]">
+										<div></div>
+									</th>
+									<th class="text-left px-[20px] w-[140px]"><div>タグ</div></th>
+									<th class="text-left px-[20px] w-[150px]"><div>エクスポート</div></th>
+									<th class="text-left px-[20px] w-[115px]"><div>分類</div></th>
+									<th class="text-left px-[20px] w-[280px]"><div>施設名</div></th>
+									<th class="text-left px-[20px] w-[140px]"><div>施設電話番号</div></th>
+									<th class="text-left px-[20px] w-[140px]"><div>施設郵便番号</div></th>
+									<th class="text-left px-[20px] w-[400px]"><div>施設住所</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>施設ビル</div></th>
+									<th class="text-left px-[20px] w-[80px]"><div></div></th>
+								</tr>
+							</thead>
+							<tbody class="">
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td>千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0 z-10">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px] z-10">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td class="whitespace-nowrap">小田介護医療院　通所リハビリテーションひまわりの里</td>
+									<td>04-7092-1128</td>
+									<td></td>
+									<td class="whitespace-nowrap">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa千葉県鴨川市横渚880</td>
+									<td></td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="h-[8%] w-full bg-white flex justify-between items-center px-[10px]">
+						<div class="w-[350px] h-full flex items-center">
+							<span>表示件数</span>
+							<div class="relative w-[100px] h-[40px] ml-[10px] text-center border-solid border border-black rounded-md leading-[40px]">
+								<input type="checkbox" id="num" class="hidden peer">
+								<ul class="hidden peer-checked:block absolute bottom-[60px] z-10 w-full bg-white h-[120px] border-solid border border-black rounded-md mb-[5px]">
+									<li class="leading-[30px]">25</li>
+									<li class="leading-[30px]">50</li>
+									<li class="leading-[30px]">100</li>
+									<li class="leading-[30px]">200</li>
+								</ul>
+								<label for="num" class="block">50</label>
+							</div>
 						</div>
-						<div>3281888件</div>
+						<div class="flex">
+							<div class="[&>*]:bg-gray-200 [&>#active]:bg-blue-300 [&>*]:min-w-[25px] [&>*]:h-[25px] [&>*]:mr-[8px] text-sm">
+								<button><</button>
+								<button id="active">1</button>
+								<button>2</button>
+								<button>3</button>
+								<button>4</button>
+								<button>5</button>
+								<button>6</button>
+								<button>...</button>
+								<button>65638</button>
+								<button>></button>
+							</div>
+							<div>3281888件</div>
+						</div>
+					</div>
+				</main>
+			</div>
+			<input type="radio" id="open_data_list" name="page" class="hidden peer/open_data_list">
+			<div class="hidden peer-checked/open_data_list:flex overflow-hidden">
+				<div class="flex flex-col bg-white w-90 h-full text-sm">
+					<div class="overflow-scroll w-full h-[calc(100%-3.5rem)] p-[15px]">
+						<div class="bg-blue-100 p-[10px]">
+							<div class="font-bold mb-[10px]">現在の検索条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">前回の検索条件条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">保存した検索条件</div>
+							<div class="mb-[10px]">検索条件は保存先されていません</div>
+						</div>
+						<div class="p-[10px]">
+							<div class="pb-[3px]">
+								<div class="font-bold">フリーワード</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="キーワードを入力">
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="除外ワードを入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">法人番号</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="法人番号を入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">都道府県</div>
+								<div class="my-[10px]">
+									<div class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white leading-[40px] text-center">
+										<label for="cl-prefecture" class="block w-full h-full">設定する</label>
+										<input type="checkbox" id="cl-prefecture" class="hidden peer/cl-prefecture">
+										<div class="hidden peer-checked/cl-prefecture:flex fixed z-50 top-0 left-0 w-full h-full bg-black/[.60] justify-center items-center"> 
+											<div class="relative w-[80%] h-[70%] bg-white text-left p-[30px]">
+												<label for="cl-prefecture" class="absolute top-[20px] right-[20px] text-3xl">&times;</label>
+												<h1 class="text-2xl">都道府県選択</h1>
+												<div class="h-[90%]"></div>
+												<div class="px-[10px] flex justify-between items-center leading-[40px] rounded-md h-[40px]">
+													<p class="block h-full bg-gray-300 grow">選択から反映まで時間がかかるケースがございます。</p>
+													<label for="cl-prefecture" class="w-20 h-full text-lg bg-white block rounded-md border-solid border border-gray-300 text-center leading-[40px]">閉じる</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white">設定する</button> -->
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full rounded p-[3px] h-[40px] border-solid border-gray-300 border" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">ジャンル</div>
+								<div class="my-[10px]">
+									<div class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white leading-[40px] text-center">
+										<label for="cl-genre" class="block w-full h-full">設定する</label>
+										<input type="checkbox" id="cl-genre" class="hidden peer/cl-genre">
+										<div class="hidden peer-checked/cl-genre:flex fixed z-50 top-0 left-0 w-full h-full bg-black/[.60] justify-center items-center"> 
+											<div class="relative w-[80%] h-[70%] bg-white text-left p-[30px]">
+												<label for="cl-genre" class="absolute top-[20px] right-[20px] text-3xl">&times;</label>
+												<h1 class="text-2xl">ジャンル選択</h1>
+												<div class="h-[90%]"></div>
+												<div class="px-[10px] flex justify-between items-center leading-[40px] rounded-md h-[40px]">
+													<p class="block h-full grow"></p>
+													<label for="cl-genre" class="w-20 h-full text-lg bg-white block rounded-md border-solid border border-gray-300 text-center leading-[40px]">閉じる</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white">設定する</button> -->
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full rounded p-[3px] h-[40px] border-solid border-gray-300 border" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">キーワード</div>
+								<div class="my-[10px]">ジャンルを選択してくださいください</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">電話番号</div>
+								<div class="my-[10px]">
+									<input type="radio" id="phone-t" name="phone"><label for="phone-t">あり</label>
+									<input type="radio" id="phone-f"name="phone"><label for="phone-f">なし</label>
+									<input type="radio" id="phone-a"name="phone" checked><label for="phone-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">法人名</div>
+								<div class="my-[10px]">
+									<input type="radio" id="corporate-t"name="corporate"><label for="corporate-t">あり</label>
+									<input type="radio" id="corporate-f"name="corporate"><label for="corporate-f">なし</label>
+									<input type="radio" id="corporate-a"name="corporate" checked><label for="corporate-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">ハッシュタグ</div>
+								<div class="my-[10px]">
+									<input type="radio" id="hashtag-t" name="hashtag"><label for="hashtag-t">あり</label>
+									<input type="radio" id="hashtag-f" name="hashtag"><label for="hashtag-f">なし</label>
+									<input type="radio" id="hashtag-a" name="hashtag" checked><label for="hashtag-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">保存先</div>
+								<div class="my-[10px]">
+									<input type="radio" id="save-t" name="save"><label for="save-t">あり</label>
+									<input type="radio" id="save-f" name="save"><label for="save-f">なし</label>
+									<input type="radio" id="save-a" name="save" checked><label for="save-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">タスク</div>
+								<div class="my-[10px]">
+									<input type="radio" id="task-t" name="task"><label for="task-t">あり</label>
+									<input type="radio" id="task-f" name="task"><label for="task-f">なし</label>
+									<input type="radio" id="task-a" name="task" checked><label for="task-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">エクスポート</div>
+								<div class="my-[10px]">
+									<input type="radio" id="export-t" name="export"><label for="export-t">出力済</label>
+									<input type="radio" id="export-f" name="export"><label for="export-f">未出力</label>
+									<input type="radio" id="export-a" name="export" checked><label for="export-a">全部</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">開業推定日</div>
+								<div class="flex h-9 mt-[10px]">
+									<input type="date" placeholder="開始日" class="border-solid border border-gray-300 rounded-md">
+									<input type="date" placeholder="終了日" class="border-solid border border-gray-300 rounded-md">
+									<!-- <input type="radio" id="export-t" name="export"><label for="export-t">出力済</label> -->
+									<!-- <input type="radio" id="export-a" name="export" checked><label for="export-a">全部</label> -->
+								</div>
+								<div class="flex mt-[10px]">
+									<div class="w-[100px]">
+										<input type="radio" id="opening-n" name="cl-opening"><label for="opening-n">なし</label>
+									</div>
+									<div>
+										<input type="radio" id="opening-h" name="cl-opening" checked><label for="opening-h">直近6ヶ月</label>
+									</div>
+								</div>
+								<div class="flex">
+									<div class="w-[100px]">
+										<input type="radio" id="opening-o" name="cl-opening"><label for="opening-o">直近1年</label>
+									</div>
+									<div>
+										<input type="radio" id="opening-t" name="cl-opening" checked><label for="opening-t">直近3年</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-gray-300 h-20 flex flex-col items-center px-[30px]">
+						<button class="text-white bg-green-500 rounded-full w-[250px] h-[40px] my-[10px]">この条件で検索条件する</button>
+						<div class="w-full flex justify-between">
+							<button class="pl-[40px]">クリア</button>
+							<button class="pr-[40px]">条件を保存する</button>
+						</div>
 					</div>
 				</div>
-			</main>
+				<main class="grow overflow-hidden">
+					<div class="bg-white h-[6%] flex justify-between items-center">
+						<div class="ml-[10px] relative w-[130px] h-[35px] bg-white border-solid border border-black rounded-md">
+							<label for="ol_toggle" onclick="" class="w-full h-full pl-[5px] block leading-[35px]">menu</label>
+							<input type="checkbox" id="ol_toggle" autocomplete="off" class="hidden peer">
+							<ul id="menu" class="hidden w-full mt-[10px] bg-white peer-checked:block absolute border-solid border border-black rounded-md z-30">
+								<li class="pl-[5px] leading-[35px]">macci</li>
+								<li class="pl-[5px] leading-[35px]">マイマップ</li>
+							</ul>
+						</div>
+						<div class="w-[130px] h-[35px] mr-[10px] border-solid border border-black rounded-md text-center leading-[35px]">
+							<label for="ol_export_modal" class="w-full block cursor-pointer">エクスポート</label>
+							<input type="checkbox" id="ol_export_modal" class="hidden peer">
+							<div class="peer-checked:flex fixed top-0 left-0 z-50 hidden w-full h-full justify-center items-center bg-black/[.60]">
+								<div class="relative w-[30%] h-[20%] bg-white rounded-md p-[30px]">
+									<label for="ol_export_modal" class="absolute top-[20px] right-[20px] text-gray-500 text-2xl cursor-pointer">&times;</label>
+									<div class="text-left">
+										<h1 class="text-2xl">確認</h1>
+										<p class="mt-[20px] text-xl text-gray-500">今月のエクスポート状況は1251/100000です。出力しますか。</p>
+									</div>
+									<label for="ol_export_modal" class="block ml-auto text-white bg-blue-400 w-[50px] h-[35px] rounded-md text-center leading-[35px] cursor-pointer">OK</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="overflow-auto h-[86%] mx-[10px]">
+						<table class="w-full table-fixed border-collapse bg-white">
+							<thead class="sticky top-0 z-20 h-[60px] py-[12px] border-solid border-b">
+								<tr class="[&>*]:bg-white">
+									<th class="sticky left-0 w-[60px]">
+										<div>
+											<input type="checkbox">
+										</div>
+									</th>
+									<th class="sticky left-[60px] w-[200px]">
+										<div></div>
+									</th>
+									<th class="text-left px-[20px] w-[140px]"><div>タグ</div></th>
+									<th class="text-left px-[20px] w-[150px]"><div>エクスポート</div></th>
+									<th class="text-left px-[20px] w-[115px]"><div>分類</div></th>
+									<th class="text-left px-[20px] w-[280px]"><div>施設名</div></th>
+									<th class="text-left px-[20px] w-[140px]"><div>施設電話番号</div></th>
+									<th class="text-left px-[20px] w-[140px]"><div>施設郵便番号</div></th>
+									<th class="text-left px-[20px] w-[400px]"><div>施設住所</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>施設ビル</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>法人名</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>法人番号</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>開業推定日</div></th>
+									<th class="text-left px-[20px] w-[80px]"><div></div></th>
+								</tr>
+							</thead>
+							<tbody class="">
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>Runケア居宅介護支援事業所</td>
+									<td>047-723-2936</td>
+									<td></td>
+									<td>千葉県松戸市東松戸四丁目8-6</td>
+									<td>102号YASUIビル第9</td>
+									<td>株式会社Runケア</td>
+									<td></td>
+									<td>2024-04-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="sticky left-0">
+										<input type="checkbox">
+									</th>
+									<th class="sticky left-[60px]">
+										<div class="w-[200px]">
+											<button>ハッシュタグ</button>
+											<button>保存</button>
+											<button>タスク</button>
+										</div>
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>医療・介護</td>
+									<td>訪問看護ステーション　ALWAYS新松戸</td>
+									<td>047-375-8225</td>
+									<td></td>
+									<td>千葉県松戸市新松戸3-279-1</td>
+									<td>歩荷ビル202</td>
+									<td>株式会社ハートカンパニー</td>
+									<td></td>
+									<td>2024-06-01</td>
+									<td>
+										<button>s</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="h-[8%] w-full bg-white flex justify-between items-center px-[10px]">
+						<div class="w-[350px] h-full flex items-center">
+							<span>表示件数</span>
+							<div class="relative w-[100px] h-[40px] ml-[10px] text-center border-solid border border-black rounded-md leading-[40px]">
+								<input type="checkbox" id="num" class="hidden peer">
+								<ul class="hidden peer-checked:block absolute bottom-[60px] z-10 w-full bg-white h-[120px] border-solid border border-black rounded-md mb-[5px]">
+									<li class="leading-[30px]">25</li>
+									<li class="leading-[30px]">50</li>
+									<li class="leading-[30px]">100</li>
+									<li class="leading-[30px]">200</li>
+								</ul>
+								<label for="num" class="block">50</label>
+							</div>
+						</div>
+						<div class="flex">
+							<div class="[&>*]:bg-gray-200 [&>#active]:bg-blue-300 [&>*]:min-w-[25px] [&>*]:h-[25px] [&>*]:mr-[8px] text-sm">
+								<button><</button>
+								<button id="active">1</button>
+								<button>2</button>
+								<button>3</button>
+								<button>4</button>
+								<button>5</button>
+								<button>6</button>
+								<button>...</button>
+								<button>65638</button>
+								<button>></button>
+							</div>
+							<div>3281888件</div>
+						</div>
+					</div>
+				</main>
+			</div>
+			<input type="radio" id="corporate_data_list" name="page" class="hidden peer/corporate_data_list">
+			<div class="hidden peer-checked/corporate_data_list:flex overflow-hidden">
+				<div class="flex flex-col bg-white w-90 h-full text-sm">
+					<div class="overflow-scroll w-full h-[calc(100%-3.5rem)] p-[15px]">
+						<div class="bg-blue-100 p-[10px]">
+							<div class="font-bold mb-[10px]">現在の検索条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">前回の検索条件条件</div>
+							<div class="mb-[10px]">なし</div>
+							<div class="font-bold mb-[10px]">保存した検索条件</div>
+							<div class="mb-[10px]">検索条件は保存先されていません</div>
+						</div>
+						<div class="p-[10px]">
+							<div class="pb-[3px]">
+								<div class="font-bold">フリーワード</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="キーワードを入力">
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="除外ワードを入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">法人番号</div>
+								<div class="my-[10px]">
+									<input class="w-full p-[3px] rounded h-[40px] border-solid border-gray-300 border" type="text" placeholder="法人番号を入力">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">都道府県</div>
+								<div class="my-[10px]">
+									<div class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white leading-[40px] text-center">
+										<label for="cl-prefecture" class="block w-full h-full">設定する</label>
+										<input type="checkbox" id="cl-prefecture" class="hidden peer/cl-prefecture">
+										<div class="hidden peer-checked/cl-prefecture:flex fixed z-50 top-0 left-0 w-full h-full bg-black/[.60] justify-center items-center"> 
+											<div class="relative w-[80%] h-[70%] bg-white text-left p-[30px]">
+												<label for="cl-prefecture" class="absolute top-[20px] right-[20px] text-3xl">&times;</label>
+												<h1 class="text-2xl">都道府県選択</h1>
+												<div class="h-[90%]"></div>
+												<div class="px-[10px] flex justify-between items-center leading-[40px] rounded-md h-[40px]">
+													<p class="block h-full bg-gray-300 grow">選択から反映まで時間がかかるケースがございます。</p>
+													<label for="cl-prefecture" class="w-20 h-full text-lg bg-white block rounded-md border-solid border border-gray-300 text-center leading-[40px]">閉じる</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- <button class="hover:border-blue-500 border-solid border-gray-400 border rounded-md text-center w-full h-[40px] leading-[30px] bg-white">設定する</button> -->
+								</div>
+								<div class="my-[10px]">
+									<input class="w-full rounded p-[3px] h-[40px] border-solid border-gray-300 border" type="" placeholder="クリックして選択またはキーワードワード" class="overflow-hidden whitespace-nowrap">
+								</div>
+							</div>
+							<div class="py-[3px]">
+								<div class="font-bold">電話番号</div>
+								<div class="my-[10px]">
+									<input type="radio" id="phone-t" name="cl-phone"><label for="phone-t">あり</label>
+									<input type="radio" id="phone-f" name="cl-phone"><label for="phone-f">なし</label>
+									<input type="radio" id="phone-a" name="cl-phone" checked><label for="phone-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">エクスポート</div>
+								<div class="my-[10px]">
+									<input type="radio" id="export-t"name="cl-export"><label for="export-t">出力済み</label>
+									<input type="radio" id="export-f"name="cl-export"><label for="export-f">未出力</label>
+									<input type="radio" id="export-a"name="cl-export" checked><label for="export-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">HP</div>
+								<div class="my-[10px]">
+									<input type="radio" id="hp-t" name="cl-hp"><label for="hp-t">あり</label>
+									<input type="radio" id="hp-f" name="cl-hp"><label for="hp-f">なし</label>
+									<input type="radio" id="hp-a" name="cl-hp" checked><label for="hp-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">Facebook</div>
+								<div class="my-[10px]">
+									<input type="radio" id="facebook-t" name="cl-facebook"><label for="facebook-t">あり</label>
+									<input type="radio" id="facebook-f" name="cl-facebook"><label for="facebook-f">なし</label>
+									<input type="radio" id="facebook-a" name="cl-facebook" checked><label for="facebook-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">Twitter</div>
+								<div class="my-[10px]">
+									<input type="radio" id="twitter-t" name="cl-twitter"><label for="twitter-t">あり</label>
+									<input type="radio" id="twitter-f" name="cl-twitter"><label for="twitter-f">なし</label>
+									<input type="radio" id="twitter-a" name="cl-twitter" checked><label for="twitter-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">Instagram</div>
+								<div class="my-[10px]">
+									<input type="radio" id="instagram-t" name="cl-instagram"><label for="instagram-t">あり</label>
+									<input type="radio" id="instagram-f" name="cl-instagram"><label for="instagram-f">なし</label>
+									<input type="radio" id="instagram-a" name="cl-instagram" checked><label for="instagram-a">全て</label>
+								</div>
+							</div>
+							<div class="py-[5px]">
+								<div class="font-bold">施設数（ジャンル別）</div>
+								<div class="w-full mt-3">
+									<input type="text" placeholder="クリックして選択またはキーワード" class="block h-10 w-full border-solid border border-gray-300 rounded-md">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="bg-gray-300 h-20 flex flex-col items-center px-[30px]">
+						<button class="text-white bg-green-500 rounded-full w-[250px] h-[40px] my-[10px]">この条件で検索条件する</button>
+						<div class="w-full flex justify-between">
+							<button class="pl-[40px]">クリア</button>
+							<button class="pr-[40px]">条件を保存する</button>
+						</div>
+					</div>
+				</div>
+				<main class="grow overflow-hidden">
+					<div class="bg-white h-[6%] flex justify-between items-center">
+						<div class="ml-[10px] relative w-[130px] h-[35px] bg-white border-solid border border-black rounded-md">
+							<label for="cl_toggle" onclick="" class="w-full h-full pl-[5px] block leading-[35px]">menu</label>
+							<input type="checkbox" id="cl_toggle" autocomplete="off" class="hidden peer">
+							<ul id="menu" class="hidden w-full mt-[10px] bg-white peer-checked:block absolute border-solid border border-black rounded-md z-30">
+								<li class="pl-[5px] leading-[35px]">macci</li>
+								<li class="pl-[5px] leading-[35px]">マイマップ</li>
+							</ul>
+						</div>
+						<div class="w-[130px] h-[35px] mr-[10px] border-solid border border-black rounded-md text-center leading-[35px]">
+							<label for="cl_export_modal" class="w-full block cursor-pointer">エクスポート</label>
+							<input type="checkbox" id="cl_export_modal" class="hidden peer">
+							<div class="peer-checked:flex fixed top-0 left-0 z-50 hidden w-full h-full justify-center items-center bg-black/[.60]">
+								<div class="relative w-[30%] h-[20%] bg-white rounded-md p-[30px]">
+									<label for="cl_export_modal" class="absolute top-[20px] right-[20px] text-gray-500 text-2xl cursor-pointer">&times;</label>
+									<div class="text-left">
+										<h1 class="text-2xl">確認</h1>
+										<p class="mt-[20px] text-xl text-gray-500">今月のエクスポート状況は1251/100000です。出力しますか。</p>
+									</div>
+									<label for="cl_export_modal" class="block ml-auto text-white bg-blue-400 w-[50px] h-[35px] rounded-md text-center leading-[35px] cursor-pointer">OK</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="overflow-auto h-[86%] mx-[10px]">
+						<table class="w-full table-fixed border-collapse bg-white">
+							<thead class="sticky top-0 z-20 h-[60px] py-[12px] border-solid border-b">
+								<tr class="[&>*]:bg-white">
+									<th class="w-[60px]">
+										<div>
+											<input type="checkbox">
+										</div>
+									</th>
+									<th class="text-left px-[20px] w-[150px]"><div>エクスポート</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>法人名</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>郵便番号</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>住所</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>電話番号</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>法人番号</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>飲食店</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>配達・持ち帰り</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>美容</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>老人福祉・介護</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>医療</div></th>
+									<th class="text-left px-[20px] w-[200px]"><div>薬・健康食品</div></th>
+								</tr>
+							</thead>
+							<tbody class="">
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-white [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr class="border-solid border-b h-[60px] w-full [&>*]:bg-gray-100 [&>*]:overflow-hidden [&>*]:whitespace-nowrap">
+									<th class="">
+										<input type="checkbox">
+									</th>
+									<td>
+										<div class=""></div>
+									</td>
+									<td>合同会社介護・福祉タクシー月</td>
+									<td>〒851-1201</td>
+									<td>長崎県長崎市伊王島町1丁目2052番地</td>
+									<td></td>
+									<td>9310003004578</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="h-[8%] w-full bg-white flex justify-between items-center px-[10px]">
+						<div class="w-[350px] h-full flex items-center">
+							<span>表示件数</span>
+							<div class="relative w-[100px] h-[40px] ml-[10px] text-center border-solid border border-black rounded-md leading-[40px]">
+								<input type="checkbox" id="num" class="hidden peer">
+								<ul class="hidden peer-checked:block absolute bottom-[60px] z-10 w-full bg-white h-[120px] border-solid border border-black rounded-md mb-[5px]">
+									<li class="leading-[30px]">25</li>
+									<li class="leading-[30px]">50</li>
+									<li class="leading-[30px]">100</li>
+									<li class="leading-[30px]">200</li>
+								</ul>
+								<label for="num" class="block">50</label>
+							</div>
+						</div>
+						<div class="flex">
+							<div class="[&>*]:bg-gray-200 [&>#active]:bg-blue-300 [&>*]:min-w-[25px] [&>*]:h-[25px] [&>*]:mr-[8px] text-sm">
+								<button><</button>
+								<button id="active">1</button>
+								<button>2</button>
+								<button>3</button>
+								<button>4</button>
+								<button>5</button>
+								<button>6</button>
+								<button>...</button>
+								<button>65638</button>
+								<button>></button>
+							</div>
+							<div>3281888件</div>
+						</div>
+					</div>
+				</main>
+			</div>
 		</div>
     </div>
 </body>
